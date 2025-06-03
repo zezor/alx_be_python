@@ -8,10 +8,11 @@ def display_menu():
     print("4. Exit")
 
 def main():
+
     shopping_list = []
 
-  shopping_starts = True
-    
+    shopping_starts = True
+
     while shopping_starts:
         display_menu()
         choice = input("Enter your choice: ")
@@ -20,7 +21,7 @@ def main():
             item = input("Enter the item to add: ").strip()
             shopping_list.append(item)
             print(f"'{item}' has been added to your shopping list.")
-        
+
         elif choice == '2':
             item = input("Enter the item to remove: ").strip()
             if item in shopping_list:
@@ -28,7 +29,7 @@ def main():
                 print(f"'{item}' has been removed from your shopping list.")
             else:
                 print(f"'{item}' is not in the shopping list.")
-        
+
         elif choice == '3':
             if shopping_list:
                 print("\nYour Shopping List:")
@@ -36,7 +37,7 @@ def main():
                     print(f"{idx}. {item}")
             else:
                 print("Your shopping list is empty.")
-        
+
         elif choice == '4':
             print("Goodbye!")
             shopping_starts = False
