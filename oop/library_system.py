@@ -7,6 +7,9 @@ class Book:
     def get_details(self):
         return f"Book: {self.title} by {self.author}"
 
+    def __str__(self):
+        return self.get_details()
+
 
 # Derived Class - EBook
 class EBook(Book):
@@ -16,6 +19,9 @@ class EBook(Book):
 
     def get_details(self):
         return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}KB"
+
+    def __str__(self):
+        return self.get_details()
 
 
 # Derived Class - PrintBook
@@ -27,11 +33,14 @@ class PrintBook(Book):
     def get_details(self):
         return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
 
+    def __str__(self):
+        return self.get_details()
+
 
 # Composition - Library
 class Library:
     def __init__(self):
-        self.books = []  # Will hold instances of Book, EBook, or PrintBook
+        self.books = []
 
     def add_book(self, book):
         if isinstance(book, Book):
@@ -41,4 +50,4 @@ class Library:
 
     def list_books(self):
         for book in self.books:
-            print(book.get_details())
+            print(book)  # Uses __str__ method
