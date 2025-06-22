@@ -1,3 +1,4 @@
+# Base Class - Book
 class Book:
     def __init__(self, title, author):
         self.title = title
@@ -7,15 +8,17 @@ class Book:
         return f"Book: {self.title} by {self.author}"
 
 
+# Derived Class - EBook
 class EBook(Book):
     def __init__(self, title, author, file_size):
         super().__init__(title, author)
-        self.file_size = file_size
+        self.file_size = file_size  # in KB
 
     def get_details(self):
         return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}KB"
 
 
+# Derived Class - PrintBook
 class PrintBook(Book):
     def __init__(self, title, author, page_count):
         super().__init__(title, author)
@@ -25,9 +28,10 @@ class PrintBook(Book):
         return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
 
 
+# Composition - Library
 class Library:
     def __init__(self):
-        self.books = []
+        self.books = []  # Will hold instances of Book, EBook, or PrintBook
 
     def add_book(self, book):
         if isinstance(book, Book):
